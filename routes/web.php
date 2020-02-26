@@ -39,6 +39,9 @@ Route::delete('/user/lists/{id}/items/{id}', 'User\ItemController@destroy')->nam
 
 
 //products crud
+Route::get('/user/items', 'User\ItemController@index')->name('user.items.index');
+
+
 Route::get('/user/lists/{id}/items/create', 'User\ItemController@create')->name('user.lists.items.create');
 Route::post('/user/lists/{id}/items/store', 'User\ItemController@store')->name('user.lists.items.store');
 Route::get('/user/items/{id}', 'User\ItemController@show')->name('user.items.show');

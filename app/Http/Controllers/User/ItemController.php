@@ -19,6 +19,12 @@ class ItemController extends Controller
     public function index()
     {
 
+      $items = Item::all();
+      // $items = Item::where(  ???   'user_id', Auth::id())->get();
+
+      return view('user.items.index')->with([
+        'items' => $items
+      ]);
     }
 
     /**
