@@ -39,14 +39,14 @@
                         </a>
                     </h1>
                     <p class="text-mineshaft text-sm">
-                        {{ $list->timestamps }}
+                        {{ $list->created_at->format('d-m-yy') }}
                     </p>
 
                 </header>
 
                 <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left mb-4">
                     <p class="text-sm leading-tight text-gray-600">{{ $list->is_public }}</p>
-                    <p class="text-sm leading-tight text-gray-600">{{ $list->user_uuid }}</p>
+                    <p class="text-sm leading-tight text-gray-600">{{ $list->user_id }}</p>
                     <div class="mt-4">
                         <button class="text-yellow-500 hover:text-white hover:bg-yellow-500 border border-yellow-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">
                           <a class="no-underline" href="{{ route('user.lists.edit', $list->id) }}">Edit</a>

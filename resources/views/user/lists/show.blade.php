@@ -34,7 +34,7 @@
                           </a>
                       </h1>
                       <p class="text-mineshaft text-sm">
-                          {{ $item->timestamps }}
+                          {{ $item->created_at->format('d-m-yy') }}
                       </p>
 
                   </header>
