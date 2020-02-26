@@ -16,6 +16,11 @@ class ItemController extends Controller
         $this->middleware('role:user');
     }
 
+    public function index()
+    {
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

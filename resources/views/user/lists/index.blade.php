@@ -6,7 +6,7 @@
 {{-- header and add button start --}}
 <header class="flex items-center justify-between flex-wrap mx-8 my-3">
     <div class="flex items-center flex-shrink-0">
-        <h1 class="w-16 text-4xl font-black text-mineshaft">Lysts</h1>
+        <h1 class="w-16 text-4xl font-black text-mineshaft">Lists</h1>
     </div>
     <div class="w-auto block sm:flex sm:items-center sm:w-auto">
         <a href="{{ route('user.lists.create') }}" class="inline-block mt-4 sm:inline-block sm:mt-0 mr-4 bg-mantis text-white py-2 px-4 rounded-full">Add</a>
@@ -19,11 +19,11 @@
 <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
-        @if (count($listModels) ===0)
+        @if (count($lists) ===0)
         <p class="text-2xl">There are no lysts!</p>
         @else
 
-        @foreach ($listModels as $listModel)
+        @foreach ($lists as $list)
         <!-- Column -->
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 
@@ -34,24 +34,24 @@
 
                 <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                     <h1 class="text-2xl">
-                        <a class="no-underline hover:text-safetyorange text-mineshaft" href="{{ route('user.lists.show', $listModel->id) }}">
-                            {{ $listModel->name }}
+                        <a class="no-underline hover:text-safetyorange text-mineshaft" href="{{ route('user.lists.show', $list->id) }}">
+                            {{ $list->name }}
                         </a>
                     </h1>
                     <p class="text-mineshaft text-sm">
-                        {{ $listModel->timestamps }}
+                        {{ $list->timestamps }}
                     </p>
 
                 </header>
 
                 <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left mb-4">
-                    <p class="text-sm leading-tight text-gray-600">{{ $listModel->is_public }}</p>
-                    <p class="text-sm leading-tight text-gray-600">{{ $listModel->user_uuid }}</p>
+                    <p class="text-sm leading-tight text-gray-600">{{ $list->is_public }}</p>
+                    <p class="text-sm leading-tight text-gray-600">{{ $list->user_uuid }}</p>
                     <div class="mt-4">
                         <button class="text-yellow-500 hover:text-white hover:bg-yellow-500 border border-yellow-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">
-                          <a class="no-underline" href="{{ route('user.lists.edit', $listModel->id) }}">Edit</a>
+                          <a class="no-underline" href="{{ route('user.lists.edit', $list->id) }}">Edit</a>
                           </button>
-                        <form style="display:inline-block" method="POST" action="{{ route('user.lists.destroy', $listModel->id) }}">
+                        <form style="display:inline-block" method="POST" action="{{ route('user.lists.destroy', $list->id) }}">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="text-red-500 hover:text-white hover:bg-red-500 border border-red-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">Delete</button>

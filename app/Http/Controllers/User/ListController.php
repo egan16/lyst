@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ListModel;
 use Auth;
-use App\Product;
+use App\Item;
 
 class ListController extends Controller
 {
@@ -24,11 +24,11 @@ class ListController extends Controller
      */
     public function index()
     {
-        $listModels = ListModel::where('user_id', Auth::id())->get();
+        $lists = ListModel::where('user_id', Auth::id())->get();
 
 
         return view('user.lists.index')->with([
-          'listModels' => $listModels
+          'lists' => $lists
         ]);
     }
 
@@ -56,12 +56,12 @@ class ListController extends Controller
           'is_public' => 'required|boolean',
         ]);
 
-        $listModel = new ListModel();
-        $listModel->name = $request->input('name');
-        $listModel->is_public = $request->input('is_public');
-        $listModel->user_id = Auth::id();
+        $list = new ListModel();
+        $list->name = $request->input('name');
+        $list->is_public = $request->input('is_public');
+        $list->user_id = Auth::id();
 
-        $listModel->save();
+        $list->save();
 
         return redirect()->route('user.lists.index');
     }
@@ -93,9 +93,9 @@ class ListController extends Controller
      */
     public function edit($id)
     {
-      $listModel = ListModel::findOrFail($id);
+      $list = ListModel::findOrFail($id);
       return view('user.lists.edit')->with([
-        'listModel' => $listModel
+        'list' => $list
       ]);
     }
 
@@ -108,18 +108,18 @@ class ListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $listModel = ListModel::findOrFail($id);
+        $list = ListModel::findOrFail($id);
 
         $request->validate([
           'name' => 'required|max:191',
           'is_public' => 'required',
         ]);
 
-        $listModel->name = $request->input('name');
-        $listModel->is_public = $request->input('is_public');
-        $listModel->user_id = Auth::id();
+        $list->name = $request->input('name');
+        $list->is_public = $request->input('is_public');
+        $list->user_id = Auth::id();
 
-        $listModel->save();
+        $list->save();
 
         return redirect()->route('user.lists.index');
     }
@@ -132,9 +132,9 @@ class ListController extends Controller
      */
     public function destroy($id)
     {
-        $listModel = ListModel::findOrFail($id);
-        $listModel->items()->detach();
-        $listModel->delete();
+        $list = ListModel::findOrFail($id);
+        $list->items()->detach();
+        $list->delete();
         return redirect()->route('user.lists.index');
     }
 }

@@ -18,7 +18,7 @@
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
         @if (count($list->items) ===0)
-        <p class="text-2xl text-mineshaftail">This lyst is empty!</p>
+        <p class="text-2xl text-mineshaftail">This list is empty!</p>
         @else
 
         @foreach ($list->items as $item)
