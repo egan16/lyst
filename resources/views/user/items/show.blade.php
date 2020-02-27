@@ -12,6 +12,12 @@
 
                     <table class="table table-hover">
                         <tbody>
+
+                          <tr>
+                              <td>Image</td>
+                              <td><img class="object-contain h-48 w-full" src="{{ $item->image }}" /></td>
+                          </tr>
+
                             <tr>
                                 <td>Price</td>
                                 <td>{{ $item->price }}</td>
