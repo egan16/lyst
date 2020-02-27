@@ -28,9 +28,6 @@
 
                     </table>
                     {{-- <a href="{{ route('user.lists.show', $listId) }}" class="btn btn-default">Back</a> --}}
-                    <button class="text-yellow-500 hover:text-white hover:bg-yellow-500 border border-yellow-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">
-                      <a class="no-underline" href="{{ route('user.items.edit', $item->id) }}">Edit</a>
-                      </button>
                     <form style="display:inline-block" method="POST" action="{{ route('user.items.destroy', $item->id) }}">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

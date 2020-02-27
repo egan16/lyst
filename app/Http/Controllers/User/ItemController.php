@@ -69,25 +69,9 @@ class ItemController extends Controller
         $item->url = $request->input('url');
         $item->store_id = $request->input('store_id');
 
-        //$product->list_id = $list_id;
-
         $item->save();
 
-        // $listModel = ListModel::findOrFail($list_id);
-
         $item->lists()->attach($list);
-
-        // $listModel = new ListModel();
-        // $listModel->list_id = $list_id;
-        //
-        // $listModel->save();
-
-
-
-        // $product_list = new Product_list();
-        // $product_list->list_id = $list_id;
-        //
-        // $product_list->save();
 
 
         return redirect()->route('user.lists.show', [$list_id]);
@@ -108,6 +92,46 @@ class ItemController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+      $item = Item::findOrFail($id);
+      $stores = Store::all();
+      return view('user.items.edit')->with([
+        'item' => $item,
+        'stores' => $stores
+      ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $item = Item::findOrFail($id);
+
+        $request->validate([
+          'title' => 'required|max:191',
+          'price' => 'required|',
+          'item_code' => 'required|',
+          'url' => 'required|',
+          'store_id' => 'required|',
+        ]);
+
+        $item->title = $request->input('title');
+        $item->item_code = $request->input('item_code');
+        $item->price = $request->input('price');
+        $item->url = $request->input('url');
+        $item->store_id = $request->input('store_id');
+
+        $item->save();
+
+        return redirect()->route('user.items.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -118,16 +142,16 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
         $item->lists()->detach();
-        $item->categories()->detach();
+        // $item->categories()->detach();
         $item->delete();
-        return redirect()->route('user.lists.show');
+        return redirect()->route('user.items.index');
     }
 
 
     // public function destroy($list_id, $id)
     // {
-    //     $product = Product::findOrFail($id);
-    //     $product->lists()->detach($list_id);
+    //     $item = Item::findOrFail($id);
+    //     $item->lists()->detach($list_id);
     //     return redirect()->route('user.lists.show');
     // }
 }

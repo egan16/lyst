@@ -49,7 +49,6 @@
                 <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left mb-4">
                     <p class="text-sm leading-tight text-gray-600">{{ $item->item_code }}</p>
                     <p class="text-sm leading-tight text-gray-600">{{ $item->url }}</p>
-                    <p class="text-sm leading-tight text-gray-600">{{ $item->price }}</p>
                     <p class="text-sm leading-tight text-gray-600">{{ $item->store_id }}</p>
                     {{-- <div class="mt-4">
                         <button class="text-yellow-500 hover:text-white hover:bg-yellow-500 border border-yellow-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">

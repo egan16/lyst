@@ -52,6 +52,13 @@
                 </a>
                 @endif
                 @else
+
+                <a href="{{ route('user.lists.index') }}" class="mt-4 sm:inline-block sm:mt-0 text-mineshaft hover:text-safetyorange mr-4">
+                  Lists
+                </a>
+                <a href="{{ route('user.items.index') }}" class="mt-4 sm:inline-block sm:mt-0 text-mineshaft hover:text-safetyorange mr-4">
+                  Items
+                </a>
                 <a href="{{ url('/home') }}" class="mt-4 sm:inline-block sm:mt-0 text-mineshaft hover:text-safetyorange mr-4">
                     {{ Auth::user()->name }}
                 </a>

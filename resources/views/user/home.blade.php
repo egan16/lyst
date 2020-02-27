@@ -17,7 +17,9 @@
 
                     You are logged in as an ordinary user!
                     <br>
-                    <a href="{{ route('user.lists.index') }}" class="hover:text-safetyorange">View your Lysts</a>
+                    <a href="{{ route('user.lists.index') }}" class="hover:text-safetyorange">View your Lists</a>
+                    <br>
+                    <a href="{{ route('user.items.index') }}" class="hover:text-safetyorange">View your Items</a>
                 </div>
             </div>
         </div>

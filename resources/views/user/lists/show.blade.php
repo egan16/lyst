@@ -30,6 +30,8 @@
                   <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                       <h1 class="text-2xl">
                           <a class="no-underline hover:text-safetyorange text-mineshaft" href="{{ route('user.items.show', $item->id) }}">
+                            {{-- commented out possible for ItemListController --}}
+                            {{-- <a class="no-underline hover:text-safetyorange text-mineshaft" href="{{ route('user.lists.items.show', $list->id, $item->id) }}"> --}}
                               {{ $item->title }}
                           </a>
                       </h1>

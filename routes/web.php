@@ -32,17 +32,19 @@ Route::put('/user/lists/{id}', 'User\ListController@update')->name('user.lists.u
 Route::delete('/user/lists/{id}', 'User\ListController@destroy')->name('user.lists.destroy');
 
 
-//make productlist controller
+//make Itemlist controller
 //make show for this
-Route::delete('/user/lists/{id}/items/{id}', 'User\ItemController@destroy')->name('user.items.destroy');
 
-
+// Route::get('/user/lists/{id}/items/create', 'User\ItemListController@create')->name('user.lists.items.create');
+// Route::post('/user/lists/{id}/items/store', 'User\ItemListController@store')->name('user.lists.items.store');
+// Route::get('/user/lists/{id}/items/{id}', 'User\ItemListController@show')->name('user.lists.items.show');
+// Route::delete('/user/lists/{id}/items/{id}', 'User\ItemListController@destroy')->name('user.lists.items.destroy');
 
 //products crud
 Route::get('/user/items', 'User\ItemController@index')->name('user.items.index');
-
-
 Route::get('/user/lists/{id}/items/create', 'User\ItemController@create')->name('user.lists.items.create');
 Route::post('/user/lists/{id}/items/store', 'User\ItemController@store')->name('user.lists.items.store');
 Route::get('/user/items/{id}', 'User\ItemController@show')->name('user.items.show');
+Route::get('/user/items/{id}/edit', 'User\ItemController@edit')->name('user.items.edit');
+Route::put('/user/items/{id}', 'User\ItemController@update')->name('user.items.update');
 Route::delete('/user/items/{id}', 'User\ItemController@destroy')->name('user.items.destroy');
