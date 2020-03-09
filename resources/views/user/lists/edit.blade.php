@@ -18,13 +18,13 @@
                         </ul>
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('user.lists.update', $listModel->id) }}">
+                    <form method="POST" action="{{ route('user.lists.update', $list->id) }}">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
 
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $listModel->name) }}" />
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $list->name) }}" />
                         </div>
                         <div class="form-group">
                             <label for="is_public">Make lyst public</label>
