@@ -8,7 +8,7 @@
         <h1 class="w-auto text-4xl font-black text-mineshaft">{{ $list->name }}</h1>
     </div>
     <div class="w-auto block sm:flex sm:items-center sm:w-auto">
-        <a href="{{ route('user.lists.items.create', $list->id) }}" class="inline-block mt-4 sm:inline-block sm:mt-0 mr-4 bg-mantis text-white py-2 px-4 rounded-full">Add</a>
+        <a href="{{ route('user.lists.items.create', $list->id) }}" class="inline-block mt-4 sm:inline-block sm:mt-0 mr-4 bg-mantis text-white py-2 px-4 rounded-full hover:bg-safetyorange">Add</a>
     </div>
 </header>
 {{-- header and add button end --}}
