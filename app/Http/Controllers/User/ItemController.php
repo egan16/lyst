@@ -66,7 +66,7 @@ class ItemController extends Controller
         //VALIDATE FOR PRODUCT
         $request->validate([
           'title' => 'required|max:191',
-          'price' => 'required|',
+          'price' => 'required|numeric',
           'item_code' => 'required|max:20',
           'url' => 'required|max:400',
           'store_id' => 'required|',
@@ -128,7 +128,7 @@ class ItemController extends Controller
 
         $request->validate([
           'title' => 'required|max:191',
-          'price' => 'required|',
+          'price' => 'required|numeric',
           'item_code' => 'required|max:20',
           'url' => 'required|max:400',
           'store_id' => 'required|',
