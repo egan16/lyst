@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Item;
 use App\Store;
 use App\ListModel;
+use Auth;
 
 class ItemController extends Controller
 {
@@ -19,8 +20,20 @@ class ItemController extends Controller
     public function index()
     {
 
-      $items = Item::all();
-      // $items = Item::where(  ???   'user_id', Auth::id())->get();
+
+      $lists = ListModel::where('user_id', Auth::id())->get();
+
+      $items = [];
+
+
+      //loop through lists
+      foreach ($lists as $key => $list) {
+        //loop through items in list 
+        foreach ($list->items as $key => $item) {
+          array_push($items, $item);
+        }
+      }
+
 
       return view('user.items.index')->with([
         'items' => $items
