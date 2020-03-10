@@ -28,7 +28,7 @@ class ItemController extends Controller
 
       //loop through lists
       foreach ($lists as $key => $list) {
-        //loop through items in list 
+        //loop through items in list
         foreach ($list->items as $key => $item) {
           array_push($items, $item);
         }
