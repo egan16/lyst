@@ -67,8 +67,8 @@ class ItemController extends Controller
         $request->validate([
           'title' => 'required|max:191',
           'price' => 'required|',
-          'item_code' => 'required|',
-          'url' => 'required|',
+          'item_code' => 'required|max:20',
+          'url' => 'required|max:400',
           'store_id' => 'required|',
         ]);
 
@@ -129,8 +129,8 @@ class ItemController extends Controller
         $request->validate([
           'title' => 'required|max:191',
           'price' => 'required|',
-          'item_code' => 'required|',
-          'url' => 'required|',
+          'item_code' => 'required|max:20',
+          'url' => 'required|max:400',
           'store_id' => 'required|',
         ]);
 
